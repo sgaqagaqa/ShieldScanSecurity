@@ -1,139 +1,107 @@
-function reveal() {
+function animateCount(el, target, duration = 1500) {
 
-    document.querySelectorAll(".reveal").forEach(el => {
+  let start = null;
 
-        let top = el.getBoundingClientRect().top;
+  function step(ts) {
 
-        if (top < window.innerHeight - 100) {
+    if (!start) start = ts;
 
-            el.classList.add("active");
+    const p = Math.min((ts - start) / duration, 1);
 
-        }
+    el.textContent = Math.floor(p * target);
 
-    });
+    if (p < 1) requestAnimationFrame(step);
 
-}
+  }
 
-window.addEventListener("scroll", reveal);
-
-function toggleCard(card){
-
-    card.classList.toggle("active");
+  requestAnimationFrame(step);
 
 }
 
-function startScan(){
+window.onload = () => {
 
-    let progress=document.getElementById("progress");
+  animateCount(document.getElementById("cnt-scans"), 247);
 
-    let status=document.getElementById("scanStatus");
+  animateCount(document.getElementById("cnt-threats"), 1038);
 
-    let results=document.getElementById("scanResults");
+  animateCount(document.getElementById("cnt-alerts"), 14);
 
-    let steps=[
+};
 
-        "Initializing...",
+/* SCAN ENGINE */
 
-        "Checking SSL...",
+function runScan() {
 
-        "Scanning Endpoints...",
+  const url = document.getElementById("scan-url").value;
 
-        "Analyzing Vulnerabilities...",
+  if (!url) return alert("Enter URL");
 
-        "Generating Report..."
+  document.getElementById("scan-progress").style.display = "block";
 
-    ];
+  document.getElementById("scan-results").style.display = "none";
 
-    let i=0;
+  let progress = 0;
 
-    results.style.display="none";
+  const bar = document.getElementById("pbar");
 
-    let interval=setInterval(()=>{
+  const interval = setInterval(() => {
 
-        if(i<steps.length){
+    progress += 10;
 
-            status.innerText=steps[i];
+    bar.style.width = progress + "%";
 
-            progress.style.width=((i+1)/steps.length)*100+"%";
+    if (progress >= 100) {
 
-            i++;
+      clearInterval(interval);
 
-        } else {
-
-            clearInterval(interval);
-
-            status.innerText="Scan Complete ✔";
-
-            results.style.display="block";
-
-        }
-
-    },900);
-
-}
-
-function animateValue(id,start,end,duration){
-
-    let range=end-start;
-
-    let current=start;
-
-    let increment=end>start?1:-1;
-
-    let stepTime=Math.abs(Math.floor(duration/range));
-
-    let timer=setInterval(()=>{
-
-        current+=increment;
-
-        document.getElementById(id).innerText=current.toLocaleString();
-
-        if(current==end){
-
-            clearInterval(timer);
-
-        }
-
-    },stepTime);
-
-}
-
-function animateValue(id, start, end, duration){
-
-    let startTime = null;
-
-    function animation(currentTime){
-
-        if(!startTime) startTime = currentTime;
-
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-
-        const current = Math.floor(progress * (end - start) + start);
-
-        document.getElementById(id).innerText = current.toLocaleString();
-
-        if(progress < 1){
-
-            requestAnimationFrame(animation);
-
-        }
+      showResults(url);
 
     }
 
-    requestAnimationFrame(animation);
+  }, 200);
 
 }
 
-const today = new Date().getDate();
+function showResults(url) {
 
-const scans = 8 + (today * 3);
+  document.getElementById("scan-progress").style.display = "none";
 
-const threats = 4 + (today % 8);
+  document.getElementById("scan-results").style.display = "block";
 
-const alerts = 1 + (today % 4);
+  const list = document.getElementById("findings-list");
 
-animateValue("sites", 0, scans, 2500);
+  list.innerHTML = "";
 
-animateValue("threats", 0, threats, 2200);
+  const checks = [
 
-animateValue("alerts", 0, alerts, 1800);
+    "SSL Secure",
+
+    "HTTPS Enabled",
+
+    "No Open Admin Panel",
+
+    "Headers Secure"
+
+  ];
+
+  checks.forEach((c, i) => {
+
+    setTimeout(() => {
+
+      const div = document.createElement("div");
+
+      div.className = "finding-row";
+
+      div.textContent = "✔ " + c;
+
+      list.appendChild(div);
+
+    }, i * 200);
+
+  });
+
+  document.getElementById("score-display").textContent = "85";
+
+  document.getElementById("score-label").textContent = "Good Security Posture";
+
+}
