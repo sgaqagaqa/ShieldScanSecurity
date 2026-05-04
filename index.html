@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ShieldScan Security</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+
+        <img src="sss.png" alt="logo">
+
+        ShieldScan
+
+    </div>
+
+    <div>
+
+        <a href="#services">Services</a>
+
+        <a href="#demo">Demo</a>
+
+        <a href="#pricing">Pricing</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+<div class="hero">
+
+    <h1>Enterprise-Level Website Security Scanning</h1>
+
+    <p>Detect vulnerabilities before attackers do.</p>
+
+    <a class="btn" href="#demo">Start Free Scan</a>
+
+</div>
+
+<section class="reveal">
+
+    <h2>Today's Security Activity</h2>
+
+    <div class="stats">
+<p class="metric-subtitle">Synchronizing live scan data...</p>
+
+        <div class="stat-box">
+
+            <h3 id="sites">0</h3>
+
+            <p>Sites Scanned Today</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="threats">0</h3>
+
+            <p>Threats Flagged</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="alerts">0</h3>
+
+            <p>Critical Alerts</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3>ONLINE</h3>
+
+            <p>System Status</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="services" class="reveal">
+
+    <h2>Our Security Services</h2>
+
+    <div class="cards">
+
+        <div class="card" onclick="toggleCard(this)">
+
+            <h3>Free Scan</h3>
+
+            <p>Instant security snapshot</p>
+
+            <div class="card-details">
+
+                Checks SSL, headers and vulnerabilities.
+
+            </div>
+
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+
+            <h3>Deep Audit</h3>
+
+            <p>Full penetration-style analysis</p>
+
+            <div class="card-details">
+
+                Simulates attacks and checks OWASP vulnerabilities.
+
+            </div>
+
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+
+            <h3>24/7 Monitoring</h3>
+
+            <p>Real-time protection</p>
+
+            <div class="card-details">
+
+                Continuous alerts and monitoring.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="demo" class="reveal">
+
+    <h2>Live Security Scan Demo</h2>
+
+    <div class="scan-box">
+
+        <input type="text" placeholder="Enter website URL">
+
+        <button onclick="startScan()">Scan</button>
+
+        <div class="progress-bar">
+
+            <div id="progress"></div>
+
+        </div>
+
+        <div id="scanStatus"></div>
+
+        <div class="scan-results" id="scanResults">
+
+            <h3>Security Score: 78/100</h3>
+
+            <p>⚠ Missing Security Headers</p>
+
+            <p>⚠ Weak TLS Configuration</p>
+
+            <p>✔ SSL Certificate Valid</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="pricing" class="reveal">
+
+    <h2>Pricing</h2>
+
+    <div class="pricing">
+
+        <div class="price-card">
+
+            <h3>Free</h3>
+
+            <div class="price">R0</div>
+
+            <p>Basic Scan</p>
+
+        </div>
+
+        <div class="price-card">
+
+            <h3>Pro</h3>
+
+            <div class="price">R499/mo</div>
+
+            <p>Automated Security Monitoring</p>
+
+        </div>
+
+        <div class="price-card">
+
+            <h3>Enterprise</h3>
+
+            <div class="price">Custom</div>
+
+            <p>Full Security Suite</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="reveal">
+
+    <h2>Client Feedback</h2>
+
+    <div class="cards">
+
+        <div class="card">"Outstanding vulnerability detection."</div>
+
+        <div class="card">"Fast, professional, reliable."</div>
+
+    </div>
+
+</section>
+
+<section id="contact" class="reveal">
+
+    <h2>Contact</h2>
+
+    <form class="contact-form">
+
+        <input type="text" placeholder="Name">
+
+        <input type="email" placeholder="Email">
+
+        <input type="text" placeholder="Website URL">
+
+        <textarea placeholder="Message"></textarea>
+
+        <button class="btn">Submit</button>
+
+    </form>
+
+</section>
+
+<footer>
+
+    © 2026 ShieldScan Security
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
