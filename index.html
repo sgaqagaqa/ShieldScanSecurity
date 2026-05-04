@@ -4,258 +4,205 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>ShieldScan Security</title>
+  <title>ShieldScan Security</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
 </head>
 
 <body>
 
+<!-- NAV -->
+
 <nav>
 
-    <div class="logo">
+  <div class="logo">
 
-        <img src="sss.png" alt="logo">
+    <img src="sss.png" alt="ShieldScan" onerror="this.style.display='none'" />
 
-        ShieldScan
+    <span>ShieldScan</span> Security
 
-    </div>
+  </div>
 
-    <div>
+  <ul>
 
-        <a href="#services">Services</a>
+    <li><a href="#services">Services</a></li>
 
-        <a href="#demo">Demo</a>
+    <li><a href="#about">About</a></li>
 
-        <a href="#pricing">Pricing</a>
+    <li><a href="#demo">Demo</a></li>
 
-        <a href="#contact">Contact</a>
+    <li><a href="#pricing">Pricing</a></li>
 
-    </div>
+    <li><a href="#contact">Contact</a></li>
+
+  </ul>
 
 </nav>
 
+<!-- HERO -->
+
 <div class="hero">
 
-    <h1>Enterprise-Level Website Security Scanning</h1>
+  <h1>Enterprise-Level<br /><span>Website Security Scanning</span></h1>
 
-    <p>Detect vulnerabilities before attackers do.</p>
+  <p>Detect vulnerabilities before attackers do. Fast, accurate, and built for South African businesses.</p>
 
-    <a class="btn" href="#demo">Start Free Scan</a>
+  <a href="#demo" class="btn">Start Free Scan</a>
+
+  <a href="ShieldScan_BusinessProposal.pdf" download class="btn btn-outline">Download Proposal PDF</a>
 
 </div>
 
-<section class="reveal">
+<!-- STATS -->
 
-    <h2>Today's Security Activity</h2>
+<div class="stats-bar">
 
-    <div class="stats">
-<p class="metric-subtitle">Synchronizing live scan data...</p>
+  <div class="stat"><div class="stat-num" id="cnt-scans">0</div><div class="stat-label">Sites Scanned Today</div></div>
 
-        <div class="stat-box">
+  <div class="stat"><div class="stat-num" id="cnt-threats">0</div><div class="stat-label">Threats Flagged</div></div>
 
-            <h3 id="sites">0</h3>
+  <div class="stat"><div class="stat-num" id="cnt-alerts">0</div><div class="stat-label">Critical Alerts</div></div>
 
-            <p>Sites Scanned Today</p>
+  <div class="stat"><div class="stat-num" style="color:var(--green)">ONLINE</div><div class="stat-label">System Status</div></div>
 
-        </div>
+</div>
 
-        <div class="stat-box">
+<!-- SERVICES -->
 
-            <h3 id="threats">0</h3>
+<section id="services">
 
-            <p>Threats Flagged</p>
+  <h2 class="section-title">Our <span>Security Services</span></h2>
 
-        </div>
+  <div class="cards">
 
-        <div class="stat-box">
+    <div class="card">
 
-            <h3 id="alerts">0</h3>
+      <div class="card-icon">🔍</div>
 
-            <p>Critical Alerts</p>
+      <h3>Free Scan</h3>
 
-        </div>
-
-        <div class="stat-box">
-
-            <h3>ONLINE</h3>
-
-            <p>System Status</p>
-
-        </div>
+      <p>Instant security snapshot.</p>
 
     </div>
 
-</section>
+    <div class="card">
 
-<section id="services" class="reveal">
+      <div class="card-icon">🛡️</div>
 
-    <h2>Our Security Services</h2>
+      <h3>Deep Audit</h3>
 
-    <div class="cards">
-
-        <div class="card" onclick="toggleCard(this)">
-
-            <h3>Free Scan</h3>
-
-            <p>Instant security snapshot</p>
-
-            <div class="card-details">
-
-                Checks SSL, headers and vulnerabilities.
-
-            </div>
-
-        </div>
-
-        <div class="card" onclick="toggleCard(this)">
-
-            <h3>Deep Audit</h3>
-
-            <p>Full penetration-style analysis</p>
-
-            <div class="card-details">
-
-                Simulates attacks and checks OWASP vulnerabilities.
-
-            </div>
-
-        </div>
-
-        <div class="card" onclick="toggleCard(this)">
-
-            <h3>24/7 Monitoring</h3>
-
-            <p>Real-time protection</p>
-
-            <div class="card-details">
-
-                Continuous alerts and monitoring.
-
-            </div>
-
-        </div>
+      <p>Full vulnerability analysis.</p>
 
     </div>
 
-</section>
+    <div class="card">
 
-<section id="demo" class="reveal">
+      <div class="card-icon">👁️</div>
 
-    <h2>Live Security Scan Demo</h2>
+      <h3>24/7 Monitoring</h3>
 
-    <div class="scan-box">
-
-        <input type="text" placeholder="Enter website URL">
-
-        <button onclick="startScan()">Scan</button>
-
-        <div class="progress-bar">
-
-            <div id="progress"></div>
-
-        </div>
-
-        <div id="scanStatus"></div>
-
-        <div class="scan-results" id="scanResults">
-
-            <h3>Security Score: 78/100</h3>
-
-            <p>⚠ Missing Security Headers</p>
-
-            <p>⚠ Weak TLS Configuration</p>
-
-            <p>✔ SSL Certificate Valid</p>
-
-        </div>
+      <p>Real-time protection alerts.</p>
 
     </div>
 
+  </div>
+
 </section>
 
-<section id="pricing" class="reveal">
+<!-- ABOUT -->
 
-    <h2>Pricing</h2>
+<div id="about">
 
-    <div class="pricing">
+  <div class="about-grid">
 
-        <div class="price-card">
+    <div class="about-text">
 
-            <h3>Free</h3>
+      <h2>About <span>ShieldScan Security</span></h2>
 
-            <div class="price">R0</div>
-
-            <p>Basic Scan</p>
-
-        </div>
-
-        <div class="price-card">
-
-            <h3>Pro</h3>
-
-            <div class="price">R499/mo</div>
-
-            <p>Automated Security Monitoring</p>
-
-        </div>
-
-        <div class="price-card">
-
-            <h3>Enterprise</h3>
-
-            <div class="price">Custom</div>
-
-            <p>Full Security Suite</p>
-
-        </div>
+      <p>South African cybersecurity platform built to protect businesses.</p>
 
     </div>
 
-</section>
+    <div class="about-stats">
 
-<section class="reveal">
+      <div class="about-stat-card"><div class="num">500+</div><div class="lbl">Sites Scanned</div></div>
 
-    <h2>Client Feedback</h2>
+      <div class="about-stat-card"><div class="num">98%</div><div class="lbl">Satisfaction</div></div>
 
-    <div class="cards">
+      <div class="about-stat-card"><div class="num">60s</div><div class="lbl">Scan Time</div></div>
 
-        <div class="card">"Outstanding vulnerability detection."</div>
-
-        <div class="card">"Fast, professional, reliable."</div>
+      <div class="about-stat-card"><div class="num">🇿🇦</div><div class="lbl">South Africa</div></div>
 
     </div>
 
-</section>
+  </div>
 
-<section id="contact" class="reveal">
+</div>
 
-    <h2>Contact</h2>
+<!-- DEMO -->
 
-    <form class="contact-form">
+<section id="demo">
 
-        <input type="text" placeholder="Name">
+  <h2 class="section-title">Live <span>Scan Demo</span></h2>
 
-        <input type="email" placeholder="Email">
+  <div class="scan-box">
 
-        <input type="text" placeholder="Website URL">
+    <div class="scan-input-row">
 
-        <textarea placeholder="Message"></textarea>
+      <input class="scan-input" id="scan-url" placeholder="https://yoursite.co.za" />
 
-        <button class="btn">Submit</button>
+      <button class="btn" id="scan-btn" onclick="runScan()">Scan Now</button>
 
-    </form>
+    </div>
+
+    <div class="scan-progress" id="scan-progress">
+
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="pbar"></div></div>
+
+      <div class="progress-label" id="progress-label"></div>
+
+    </div>
+
+    <div id="scan-results" style="display:none">
+
+      <div class="score-ring-wrap">
+
+        <div class="score-ring">
+
+          <svg viewBox="0 0 120 120">
+
+            <circle class="ring-bg" cx="60" cy="60" r="54"/>
+
+            <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="54"
+
+              stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+
+          </svg>
+
+          <div class="score-num" id="score-display">0</div>
+
+        </div>
+
+        <div class="score-label" id="score-label"></div>
+
+      </div>
+
+      <div class="findings" id="findings-list"></div>
+
+    </div>
+
+  </div>
 
 </section>
 
 <footer>
 
-    © 2026 ShieldScan Security
+  © 2026 ShieldScan Security
 
 </footer>
 
